@@ -33,6 +33,7 @@ defmodule WebManager.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
       {:phoenix, "~> 1.4.3"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
