@@ -49,6 +49,7 @@ config :web_manager, WebManagerWeb.Endpoint,
 config :web_manager, WebManagerWeb.Endpoint,
   live_reload: [
     patterns: [
+      ~r{lib/my_app_web/live/.*(ex)$},
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/web_manager_web/{live,views}/.*(ex)$",
@@ -71,5 +72,5 @@ config :web_manager, WebManager.Repo,
   username: "postgres",
   password: "postgres",
   database: "web_manager_dev",
-  hostname: "db",
+  hostname: "localhost",
   pool_size: 10

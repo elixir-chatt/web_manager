@@ -12,6 +12,9 @@ config :web_manager,
 
 # Configures the endpoint
 config :web_manager, WebManagerWeb.Endpoint,
+  live_view: [
+     signing_salt: "kRspI7O/rbwIPuJN12WRO2bMpz7j0k3Y"
+  ],
   url: [host: "localhost"],
   secret_key_base: "Kt3eL5dNBH1Lo0bPU8HsyfBEKaH8XwopMOyUwcdMUyqYhUPNLSkbeUMghRFCS8cj",
   render_errors: [view: WebManagerWeb.ErrorView, accepts: ~w(html json)],
