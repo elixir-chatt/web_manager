@@ -1,5 +1,14 @@
 use Mix.Config
 
+# Configure your database
+config :web_manager, WebManager.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "web_manager_dev",
+  hostname: "db",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -52,7 +61,8 @@ config :web_manager, WebManagerWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/web_manager_web/{live,views}/.*(ex)$",
-      ~r"lib/web_manager_web/templates/.*(eex)$"
+      ~r"lib/web_manager_web/templates/.*(eex)$",
+      ~r{lib/web_manager_web/live/.*(ex)$}
     ]
   ]
 
@@ -65,11 +75,3 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
-
-# Configure your database
-config :web_manager, WebManager.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "web_manager_dev",
-  hostname: "db",
-  pool_size: 10
