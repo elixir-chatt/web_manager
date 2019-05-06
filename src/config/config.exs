@@ -13,9 +13,12 @@ config :web_manager,
 # Configures the endpoint
 config :web_manager, WebManagerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "Kt3eL5dNBH1Lo0bPU8HsyfBEKaH8XwopMOyUwcdMUyqYhUPNLSkbeUMghRFCS8cj",
+  secret_key_base: "sQoKObyk87KlzNz7ambDQNBnBBUk+ZMvsBFzUzd8E0cDKFXzVbgSV0nWzSDgZeRc",
   render_errors: [view: WebManagerWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: WebManager.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: WebManager.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "9fstwLZMRSqHshVxXEz05oGrCJCqrchQ"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
