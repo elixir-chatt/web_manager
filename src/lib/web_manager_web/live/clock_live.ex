@@ -6,13 +6,15 @@ defmodule WebManagerWeb.ClockLive do
     ~L"""
     <div>
       <h2 phx-click="boom">It's <%= strftime!(@date, "%r") %></h2>
+      <h3><%= strftime!(@day,"%S") %></h3>
+
       <%= live_render(@socket, WebManagerWeb.ImageLive) %>
     </div>
     """
   end
 
   def mount(_session, socket) do
-    if connected?(socket), do: :timer.send_interval(1000, self(), :tick)
+    if connected?(socket), do: :timer.send_interval(100, self(), :tick)
 
     {:ok, put_date(socket)}
   end
@@ -26,6 +28,6 @@ defmodule WebManagerWeb.ClockLive do
   end
 
   defp put_date(socket) do
-    assign(socket, date: :calendar.local_time())
+    assign(socket, date: :calendar.local_time(), day: :calendar.local_time())
   end
 end

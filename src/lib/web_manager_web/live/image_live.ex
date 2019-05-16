@@ -14,7 +14,7 @@ defmodule WebManagerWeb.ImageLive do
     ~L"""
     <div style="margin-left: <%= @depth * 50 %>px;">
       <form phx-change="update">
-        <input type="range" min="10" max="630" name="width" value="<%= @width %>" />
+        <input type="range" min="10" max="1630" name="width" value="<%= @width %>" />
         <%= @width %>px
         <fieldset>
           White <%= radio_tag(name: :bg, value: "white", checked: @bg) %>
@@ -23,6 +23,7 @@ defmodule WebManagerWeb.ImageLive do
         </fieldset>
       </form>
       <br/>
+      <img phx-click="boom" src="<%= Routes.static_path(WebManagerWeb.Endpoint, "/images/phoenix.png") %>" width="<%= @width %>" style="background: <%= @bg %>;" />
 
     </div>
     """

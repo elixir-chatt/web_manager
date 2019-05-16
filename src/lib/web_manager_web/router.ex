@@ -18,7 +18,11 @@ defmodule WebManagerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
     live "/clock", ClockLive
+    live "/pacman", PacmanLive
+    live "/test", TestLive
+    live "/search", SearchLive
   end
 
   # Other scopes may use custom stacks.
