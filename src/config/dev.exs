@@ -58,7 +58,7 @@ config :web_manager, WebManagerWeb.Endpoint,
 config :web_manager, WebManagerWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r{lib/my_app_web/live/.*(ex)$},
+      ~r{lib/web_manager_web/live/.*(ex)$},
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/web_manager_web/{live,views}/.*(ex)$",
