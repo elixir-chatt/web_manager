@@ -2,7 +2,7 @@ defmodule WebManagerWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :web_manager
 
   socket "/live", Phoenix.LiveView.Socket
-  
+
   socket "/socket", WebManagerWeb.UserSocket,
     websocket: true,
     longpoll: false
@@ -42,7 +42,7 @@ defmodule WebManagerWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_web_manager_key",
-    signing_salt: "/ge21DzG"
+    signing_salt: "0ZQV65Lf"
 
   plug WebManagerWeb.Router
 end
