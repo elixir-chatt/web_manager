@@ -24,6 +24,7 @@ defmodule WebManagerWeb do
       import Plug.Conn
       import WebManagerWeb.Gettext
       alias WebManagerWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller, only: [live_render: 3]
     end
   end
 
@@ -43,6 +44,7 @@ defmodule WebManagerWeb do
       import WebManagerWeb.ErrorHelpers
       import WebManagerWeb.Gettext
       alias WebManagerWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3]
     end
   end
 
