@@ -9,7 +9,6 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
-import LiveSocket from "phoenix_live_view"
 import "phoenix_html"
 
 // Import local files
