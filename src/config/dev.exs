@@ -5,7 +5,7 @@ config :web_manager, WebManager.Repo,
   username: "postgres",
   password: "postgres",
   database: "web_manager_dev",
-  hostname: "localhost",
+  hostname: "db",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -82,5 +82,5 @@ config :web_manager, WebManager.Repo,
   username: "postgres",
   password: "postgres",
   database: "web_manager_dev",
-  hostname: "localhost",
+  hostname: "db",
   pool_size: 10
