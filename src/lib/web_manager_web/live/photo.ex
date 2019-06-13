@@ -63,7 +63,8 @@ defmodule WebManagerWeb.Photo do
         photos: photos(), 
         clicked_photo: "---", 
         accepted_photo_id: "---", 
-        rejected_photo_id: "---")
+        rejected_photo_id: "---", 
+        last_id: 0)
       }
   end
   
@@ -73,14 +74,18 @@ defmodule WebManagerWeb.Photo do
   
   def photo(path, id), do: %{path: path, id: id}
   
-  def random_photo() do
-    number = :random.uniform(5)
-    %{path: "#{number}.jpg", id: number}
+  def random_photo(id) do
+    %{path: "#{:random.uniform(5)}.jpg", id: id}
   end
   
   def add_random_photo(socket) do
     photos = socket.assigns.photos
-    assign(socket, :photos, [random_photo()|photos])
+    id = socket.assigns.last_id + 1
+    photo = random_photo(id)
+
+    socket
+    |> assign(:photos, [photo|photos])
+    |> assign(:last_id, id)
   end
   
   def render_photos(photos) do
@@ -116,10 +121,7 @@ defmodule WebManagerWeb.Photo do
     {:noreply, reject(clicked, socket)}
   end
   
-  def handle_event("send-fake-photo", clicked, socket) do
+  def handle_event("send-fake-photo", _value, socket) do
      {:noreply, add_random_photo(socket)}
   end
-  
-  
-  
 end
