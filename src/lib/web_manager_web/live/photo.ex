@@ -6,16 +6,16 @@ defmodule WebManagerWeb.Photo do
     <section class="phx-hero">
       <h1>Submitted Pictures from our Photobooth by <%= @person.name %></h1>
       <div class="row">
-        <div class="col-xs-6 col-md-3">
+
           <%= render_photos(@photos) |> Phoenix.HTML.raw %>
-        </div>
+
       </div>
     </section>
-    <h1>accepted: <%= @accepted_photo_id%> 
+    <h1>accepted: <%= @accepted_photo_id%>
     rejected: <%= @rejected_photo_id%> </h1>
     <section>
           <form method="POST" action="uploadFile" enctype="multipart/form-data">
-          <strong>Upload file:</strong> 
+          <strong>Upload file:</strong>
           <input type="file" name="file" />
               <input type="submit" value="Upload" />
           </form>
@@ -56,7 +56,7 @@ defmodule WebManagerWeb.Photo do
 
   def mount(_session, socket) do
     {
-      :ok, 
+      :ok,
       assign(
         socket, 
         person: %{name: "Lucas"}, 
@@ -67,17 +67,17 @@ defmodule WebManagerWeb.Photo do
         last_id: 0)
       }
   end
-  
+
   def photos() do
     []
   end
-  
+
   def photo(path, id), do: %{path: path, id: id}
   
   def random_photo(id) do
     %{path: "#{:random.uniform(5)}.jpg", id: id}
   end
-  
+
   def add_random_photo(socket) do
     photos = socket.assigns.photos
     id = socket.assigns.last_id + 1
@@ -87,36 +87,42 @@ defmodule WebManagerWeb.Photo do
     |> assign(:photos, [photo|photos])
     |> assign(:last_id, id)
   end
-  
+
   def render_photos(photos) do
     photos
     |> Enum.map(&render_photo/1)
   end
-    
+
   def render_photo(photo) do
     """
-    <a href="#" phx-click="reject" phx-value="photo#{photo.id}" class="thumbnail">
-      <img height=100 src="/images/#{photo.path}" />
-    </a>
+    <div class="img-container">
+      <a href="#" phx-click="photo" phx-value="photo#{photo.id}" class="thumbnail">
+        <img height=100 src="/images/#{photo.path}" />
+      </a>
+      <div class="btns">
+        <button href="#" phx-click="reject" phx-value="photo#{photo.id}" id="reject" class="btn btn-reject">👎</button>
+        <button href="#" phx-click="accept" phx-value="photo#{photo.id}" id="accept" class="btn btn-accept">👍</button>
+      </div>
+    </div>
     """
   end
-  
+
   def accept(clicked, socket) do
     assign(socket, accepted_photo_id: clicked)
   end
-  
-  def reject(clicked, socket) do 
+
+  def reject(clicked, socket) do
     assign(socket, rejected_photo_id: clicked)
   end
-  
+
   def handle_event("photo", clicked, socket) do
    {:noreply, assign(socket, clicked_photo: clicked )}
   end
-  
+
   def handle_event("accept", clicked, socket) do
   {:noreply, accept(clicked, socket) |> IO.inspect}
   end
-  
+
   def handle_event("reject", clicked, socket) do
     {:noreply, reject(clicked, socket)}
   end
