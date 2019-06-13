@@ -132,3 +132,39 @@ header nav a {
     margin: 2rem 1rem;
   }
 }
+
+/* additional styles */
+.img-container{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+}
+.btn {
+  font-size: 25px;
+}
+
+.btn-reject {
+  background: red;
+}
+
+
+.btn-accept {
+  background: green;
+}
+
+.btns {
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+}
+.photos {
+  flex-direction: row;
+  align-items: flex-end;
+}
+.row {
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+button {
+    padding: 0 1.0rem;
+}
