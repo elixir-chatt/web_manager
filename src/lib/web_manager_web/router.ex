@@ -8,8 +8,6 @@ defmodule WebManagerWeb.Router do
     plug Phoenix.LiveView.Flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :fetch_flash
-    plug Phoenix.LiveView.Flash
   end
 
   pipeline :api do
@@ -19,7 +17,7 @@ defmodule WebManagerWeb.Router do
   scope "/", WebManagerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", Photo
     live "/photos", Photo
   end
 

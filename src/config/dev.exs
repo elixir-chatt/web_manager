@@ -3,11 +3,18 @@ use Mix.Config
 # Configure your database
 config :web_manager, WebManager.Repo,
   username: "postgres",
-  password: "postgres",
-  database: "web_manager_dev",
-  hostname: "db",
+  password: "junkmail",
+  database: "RafikiDB",
+  hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
+  #adapter: MssqlEcto,
+  #database: "RafikiDB",
+  #username: "MBOADEV",
+  #password: "mySecurePa$$word",
+  #hostname: "localhost",
+  #instance_name: "JONSURFACE",
+  #port: "1433"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -80,7 +87,14 @@ config :phoenix, :plug_init_mode, :runtime
 # Configure your database
 config :web_manager, WebManager.Repo,
   username: "postgres",
-  password: "postgres",
-  database: "web_manager_dev",
-  hostname: "db",
+  password: "junkmail",
+  database: "RafikiDB",
+  hostname: "localhost",
   pool_size: 10
+  #adapter: MssqlEcto,
+  #database: "RafikiDB",
+  #username: "MBOADEV",
+  #password: "mySecurePa$$word",
+  #hostname: "localhost",
+  #instance_name: "JONSURFACE",
+  #port: "1433"
