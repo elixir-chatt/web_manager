@@ -1,5 +1,12 @@
 defmodule WebManager.Photos.Photo do
-  defstruct [:path, :id, troll: false, status: :pending ]
+  @statuses [:pending, :accepted, :rejected]
+  
+  defstruct [ 
+    :path, 
+    :id, 
+    troll: false, 
+    status: :pending 
+  ]
   
   def accept(photo) do
   end
