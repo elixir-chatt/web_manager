@@ -27,6 +27,16 @@ defmodule WebManager.Photos.PhotoList do
   def pending?(photo) do
     photo.status == :pending
   end
+  
+  def add_all(photos) do
+    Enum.map(photos, &process_photo/1)
+  end
+  
+  def process_photo(%{photo: bytes, troll: troll, id: id}) do
+    # url = send_to_s3 bytes, id
+    # write_to_db url, troll, id
+    # add_to_liveview(to_photo url, troll, id)
+  end
 
   def add_photo(list, photo) do
     [photo|list]
