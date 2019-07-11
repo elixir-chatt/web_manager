@@ -1,5 +1,5 @@
 use Mix.Config
-
+import_config "dev.secret.exs"
 # Configure your database
 config :web_manager, WebManager.Repo,
   username: "postgres",
