@@ -1,9 +1,5 @@
 use Mix.Config
 
-# IMPORTANT you need to create your local secret file with your Amazon s3 keys. 
-# Just creating a blank file will make this work, but DON'T CHECK IT IN
-# See Bruce for details. 
-import_config "dev.secret.exs"
 # Configure your database
 config :web_manager, WebManager.Repo,
   username: "postgres",
