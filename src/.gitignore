@@ -1,5 +1,9 @@
+
 # The directory Mix will write compiled artifacts to.
 /_build/
+
+# in case folks want to keep secret keys in an .env file
+.env
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
