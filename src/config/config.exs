@@ -23,6 +23,16 @@ config :web_manager, WebManagerWeb.Endpoint,
     signing_salt: "9fstwLZMRSqHshVxXEz05oGrCJCqrchQ"
   ]
 
+# Configures S3 storage on digital ocean using Spaces
+config :ex_aws, :s3,
+  %{
+    access_key_id: "enterAccessKey",
+    secret_access_key: "enterAccessSecret",
+    scheme: "https://",
+    host: %{"nyc3" => "nyc3.digitaloceanspaces.com"},
+    region: "nyc3"
+  }
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
