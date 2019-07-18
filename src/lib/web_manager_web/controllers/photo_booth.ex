@@ -1,10 +1,10 @@
 defmodule WebManagerWeb.PhotoBoothController do
   use WebManagerWeb, :controller
-  alias WebManager.Photos.Message
+  alias WebManager.Photos.PhotoList
 
-  def listen(conn, %{photos: photos}) do
+  def listen(_conn, %{photos: photos}) do
     photos
-    |> Enum.map(&Message.new/1)
+    # |> Enum.map(&Message.new/1)
     |> PhotoList.add_all
   end
 end
