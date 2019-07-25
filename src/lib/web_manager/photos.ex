@@ -7,6 +7,11 @@
   # for persistence.
 
 defmodule WebManager.Photos do
+  import Ecto.Query 
+  alias WebManager.Repo
+  alias WebManager.Photos.Photo
+  
+  
   def create(photo) do
     
   end
@@ -23,7 +28,8 @@ defmodule WebManager.Photos do
     
   end
   
-  def list_by_status() do
-    
+  def list_by_status(status) do
+    from(photo in Photo, where: photo.status == ^status)
+    |> Repo.all
   end
 end
