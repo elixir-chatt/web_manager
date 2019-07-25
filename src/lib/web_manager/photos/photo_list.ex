@@ -1,5 +1,12 @@
 defmodule WebManager.Photos.PhotoList do
+  alias WebManager.Photos.Photo
+  @type t :: %__MODULE__{
+    photos: [Photo.t()]
+  }
+
   defstruct( photos: [] )
+
+  alias WebManager.PhotoService
 
   def show_photos(photos, :all) do
     photos
@@ -27,12 +34,12 @@ defmodule WebManager.Photos.PhotoList do
   def pending?(photo) do
     photo.status == :pending
   end
-  
+
   def add_all(photos) do
     Enum.map(photos, &process_photo/1)
   end
-  
-  def process_photo(%{photo: bytes, troll: troll, id: id}) do
+
+  def process_photo(%{photo: _bytes, troll: _troll, id: _id}) do
     # url = send_to_s3 bytes, id
     # write_to_db url, troll, id
     # add_to_liveview(to_photo url, troll, id)
@@ -45,7 +52,7 @@ defmodule WebManager.Photos.PhotoList do
   def accept(photos, id) do
     accepted_photo = photos
     |> Enum.find(fn x -> x.id == id end)
-    |> Photo.accept
+    |> PhotoService.accept
 
     index = Enum.find_index(photos, fn x -> x.id == id end)
     List.replace_at(photos, index, accepted_photo)
@@ -55,7 +62,7 @@ defmodule WebManager.Photos.PhotoList do
   def reject(photos, id) do
     rejected_photo = photos
     |> Enum.find(fn x -> x.id == id end)
-    |> Photo.reject
+    |> PhotoService.reject
 
     index = Enum.find_index(photos, fn x -> x.id == id end)
     List.replace_at(photos, index, rejected_photo)
