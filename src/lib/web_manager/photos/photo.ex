@@ -10,28 +10,11 @@ defmodule WebManager.Photos.Photo do
     troll: boolean
   }
 
-  # What is use and what is a schema?
-    # A bit of code that let's another module add whatever code it wants to from
-    # another module so that we can use it here
-    # So that let's us use field for example instead of having to call
-    # Ecto.Schema.field() like you see starting on line 20
   use Ecto.Schema
-  # What does import do?
-    # Kind of like use insofar that we can call functions without using the fully
-    # qualified name aka validate_required instead of Ecto.Changeset.case() for
-    # example
   import Ecto.Changeset
 
-  # What do you think this is?
-    # This is called a module attribute. Elixir programers often use these to hold
-    # important static info that we want to call attention to.
   @statuses ["pending", "accepted", "rejected"]
 
-  # `schema` is provided by what?
-    # `Ecto.Schema`
-
-  # What does a schema do?
-    # A schema is a module that defines mappings to the underlying database table’s fields.
   schema "photos" do
     # What is field?
       # a function

@@ -26,8 +26,8 @@ config :web_manager, WebManagerWeb.Endpoint,
 # Configures S3 storage on digital ocean using Spaces
 config :ex_aws, :s3,
   %{
-    access_key_id: "enterAccessKey",
-    secret_access_key: "enterAccessSecret",
+    access_key_id: "SXSSA2MBE6NIRQQD55Y5",
+    secret_access_key: "YF4VVOAblExCyUIPwdBF+P26SZwEMXQaVeUnxuXMQLg",
     scheme: "https://",
     host: %{"nyc3" => "nyc3.digitaloceanspaces.com"},
     region: "nyc3"
