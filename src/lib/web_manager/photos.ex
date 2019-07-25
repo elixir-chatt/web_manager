@@ -6,4 +6,5 @@
   # to change if we decide we want to get tid of our DB and use something else
   # for persistence.
 
-  
+defmodule WebManager.Photos do
+end
