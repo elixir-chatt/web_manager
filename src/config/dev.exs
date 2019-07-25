@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :web_manager, WebManager.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "junkmail",
   database: "web_manager_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
@@ -80,7 +80,7 @@ config :phoenix, :plug_init_mode, :runtime
 # Configure your database
 config :web_manager, WebManager.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "junkmail",
   database: "web_manager_dev",
   hostname: "localhost",
   pool_size: 10

@@ -11,11 +11,15 @@ defmodule WebManager.Photos do
   end
 
   def accept(photo) do
-
+     photo
+     |> Photo.changeset( %{status: "accepted"} )
+     |> Repo.update()
   end
 
   def reject(photo) do
-
+    photo
+     |> Photo.changeset( %{status: "rejected"} )
+     |> Repo.update()
   end
 
   def send_to_s3(photo) do
