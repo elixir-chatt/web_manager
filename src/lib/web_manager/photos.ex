@@ -7,4 +7,23 @@
   # for persistence.
 
 defmodule WebManager.Photos do
+  def create(photo) do
+    
+  end
+  
+  def accept(photo) do
+     
+  end
+  
+  def reject(photo) do
+    
+  end
+  
+  def send_to_s3(photo) do
+    
+  end
+  
+  def list_by_status() do
+    
+  end
 end
