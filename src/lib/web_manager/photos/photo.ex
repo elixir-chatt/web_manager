@@ -38,6 +38,16 @@ defmodule WebManager.Photos.Photo do
     field(:path, :string)
     field(:status, :string)
     field(:troll, :boolean)
+
+    timestamps()
+  end
+
+  def accept(photo) do
+    %{photo | status: "accepted"}
+  end
+
+  def reject(photo) do
+    %{photo | status: "rejected"}
   end
 
   # Anyone know what a changeset is?
