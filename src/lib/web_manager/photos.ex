@@ -28,8 +28,13 @@ defmodule WebManager.Photos do
     
   end
   
+  def list_by_status(status) when status in [:all, "all"]  do
+    Photo
+    |> Repo.all
+  end
+  
   def list_by_status(status) do
-    from(photo in Photo, where: photo.status == ^status)
+    from(photo in Photo, where: photo.status == ^to_string(status))
     |> Repo.all
   end
 end
