@@ -37,4 +37,8 @@ defmodule WebManager.Photos do
     from(photo in Photo, where: photo.status == ^to_string(status))
     |> Repo.all
   end
+  
+  def find(id) do
+    Repo.get Photo, id
+  end
 end
