@@ -1,5 +1,5 @@
 <section class="phx-hero">
-  <h1><%= gettext "Submited Pictures from the %{name}!", name: "Photobooth" %></h1>
+  <h1><%= gettext "Submited Pictures from the %{name}!", name: "Photobooth" %>From index</h1>
   <div class="row">
     <div class="col-xs-6 col-md-3">
       <a href="#" class="thumbnail">
@@ -13,7 +13,7 @@
 </section>
 <section>
       <form method="POST" action="uploadFile" enctype="multipart/form-data">
-      <strong>Upload file:</strong> 
+      <strong>Upload file:</strong>
       <input type="file" name="file" />
           <input type="submit" value="Upload" />
       </form>

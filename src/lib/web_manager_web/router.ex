@@ -21,7 +21,12 @@ defmodule WebManagerWeb.Router do
 
     get "/", PageController, :index
     live "/photos", Photo
-  end
+
+    get "/upload", UploadController, :upload_form
+    post "/upload", UploadController, :upload
+
+    get "/hello", HelloController, :index
+end
 
   # Other scopes may use custom stacks.
   # scope "/api", WebManagerWeb do
