@@ -1,5 +1,6 @@
 defmodule WebManagerWeb.Photo do
   use Phoenix.LiveView
+  alias WebManager.Photos
 
   def render(assigns) do
     ~L"""
@@ -60,32 +61,24 @@ defmodule WebManagerWeb.Photo do
       assign(
         socket, 
         person: %{name: "Lucas"}, 
-        photos: photos(), 
+        photos: Photos.list_by_status(:pending), 
         clicked_photo: "---", 
         accepted_photo_id: "---", 
-        rejected_photo_id: "---", 
-        last_id: 0)
+        rejected_photo_id: "---")
       }
   end
-
-  def photos() do
-    []
-  end
-
-  def photo(path, id), do: %{path: path, id: id}
   
-  def random_photo(id) do
-    %{path: "#{:random.uniform(5)}.jpg", id: id}
-  end
-
   def add_random_photo(socket) do
-    photos = socket.assigns.photos
-    id = socket.assigns.last_id + 1
-    photo = random_photo(id)
+    Photos.create( 
+      %{
+        path: "#{:random.uniform(5)}.jpg", 
+        status: "pending", 
+        troll: false
+      }
+    )
 
     socket
-    |> assign(:photos, [photo|photos])
-    |> assign(:last_id, id)
+    |> assign(:photos, Photos.list_by_status(:pending))
   end
 
   def render_photos(photos) do
@@ -107,12 +100,22 @@ defmodule WebManagerWeb.Photo do
     """
   end
 
-  def accept(clicked, socket) do
-    assign(socket, accepted_photo_id: clicked)
+  def accept(photo_id, socket) do
+    Photos.accept(photo_id)
+
+    assign(
+      socket, 
+      accepted_photo_id: photo_id, 
+      photos: Photos.list_by_status(:pending))
   end
 
-  def reject(clicked, socket) do
-    assign(socket, rejected_photo_id: clicked)
+  def reject(photo_id, socket) do
+    Photos.reject(photo_id)
+    
+    assign(
+      socket, 
+      rejected_photo_id: photo_id,
+      photos: Photos.list_by_status(:pending))
   end
 
   def handle_event("photo", clicked, socket) do
@@ -120,7 +123,7 @@ defmodule WebManagerWeb.Photo do
   end
 
   def handle_event("accept", clicked, socket) do
-  {:noreply, accept(clicked, socket) |> IO.inspect}
+  {:noreply, accept(clicked, socket)}
   end
 
   def handle_event("reject", clicked, socket) do
