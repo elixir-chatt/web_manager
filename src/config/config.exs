@@ -13,14 +13,14 @@ config :web_manager,
 # Configures the endpoint
 config :web_manager, WebManagerWeb.Endpoint,
   live_view: [
-     signing_salt: "kRspI7O/rbwIPuJN12WRO2bMpz7j0k3Y"
+     signing_salt: "enterSaltHere"
   ],
   url: [host: "localhost"],
-  secret_key_base: "sQoKObyk87KlzNz7ambDQNBnBBUk+ZMvsBFzUzd8E0cDKFXzVbgSV0nWzSDgZeRc",
+  secret_key_base: "enterSecretKey",
   render_errors: [view: WebManagerWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: WebManager.PubSub, adapter: Phoenix.PubSub.PG2],
   live_view: [
-    signing_salt: "9fstwLZMRSqHshVxXEz05oGrCJCqrchQ"
+    signing_salt: "enterSaltHere"
   ]
 
 # Configures S3 storage on digital ocean using Spaces
