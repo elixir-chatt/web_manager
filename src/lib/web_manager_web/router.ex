@@ -18,8 +18,7 @@ defmodule WebManagerWeb.Router do
 
   scope "/", WebManagerWeb do
     pipe_through :browser
-
-    get "/", PageController, :index
+    live "/", Photo
     live "/photos", Photo
   end
 

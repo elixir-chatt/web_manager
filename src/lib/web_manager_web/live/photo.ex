@@ -5,7 +5,7 @@ defmodule WebManagerWeb.Photo do
   def render(assigns) do
     ~L"""
     <section class="phx-hero">
-      <h1>Submitted Pictures from our Photobooth by <%= @person.name %></h1>
+      <h1>Submitted Pictures from our Photobooth</h1>
       <div class="row">
 
           <%= render_photos(@photos) |> Phoenix.HTML.raw %>
@@ -15,43 +15,9 @@ defmodule WebManagerWeb.Photo do
     <h1>accepted: <%= @accepted_photo_id%>
     rejected: <%= @rejected_photo_id%> </h1>
     <section>
-          <form method="POST" action="uploadFile" enctype="multipart/form-data">
-          <strong>Upload file:</strong>
-          <input type="file" name="file" />
-              <input type="submit" value="Upload" />
-          </form>
           <a href="#" class="btn" phx-click="send-fake-photo">Send fake photo</a>
     </section>
-    <section class="row">
-      <article class="column">
-        <h2>Resources</h2>
-        <ul>
-          <li>
-            <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-          </li>
-          <li>
-            <a href="https://github.com/phoenixframework/phoenix">Source</a>
-          </li>
-          <li>
-            <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-          </li>
-        </ul>
-      </article>
-      <article class="column">
-        <h2>Help</h2>
-        <ul>
-          <li>
-            <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-          </li>
-          <li>
-            <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-          </li>
-        </ul>
-      </article>
-    </section>
+
     """
   end
 
@@ -59,20 +25,19 @@ defmodule WebManagerWeb.Photo do
     {
       :ok,
       assign(
-        socket, 
-        person: %{name: "Lucas"}, 
-        photos: Photos.list_by_status(:pending), 
-        clicked_photo: "---", 
-        accepted_photo_id: "---", 
+        socket,
+        photos: Photos.list_by_status(:pending),
+        clicked_photo: "---",
+        accepted_photo_id: "---",
         rejected_photo_id: "---")
       }
   end
-  
+
   def add_random_photo(socket) do
-    Photos.create( 
+    Photos.create(
       %{
-        path: "#{:random.uniform(5)}.jpg", 
-        status: "pending", 
+        path: "#{:random.uniform(5)}.jpg",
+        status: "pending",
         troll: false
       }
     )
@@ -104,16 +69,16 @@ defmodule WebManagerWeb.Photo do
     Photos.accept(photo_id)
 
     assign(
-      socket, 
-      accepted_photo_id: photo_id, 
+      socket,
+      accepted_photo_id: photo_id,
       photos: Photos.list_by_status(:pending))
   end
 
   def reject(photo_id, socket) do
     Photos.reject(photo_id)
-    
+
     assign(
-      socket, 
+      socket,
       rejected_photo_id: photo_id,
       photos: Photos.list_by_status(:pending))
   end
@@ -129,8 +94,11 @@ defmodule WebManagerWeb.Photo do
   def handle_event("reject", clicked, socket) do
     {:noreply, reject(clicked, socket)}
   end
-  
+
   def handle_event("send-fake-photo", _value, socket) do
      {:noreply, add_random_photo(socket)}
   end
+
+
+
 end
