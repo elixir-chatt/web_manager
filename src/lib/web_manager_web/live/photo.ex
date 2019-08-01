@@ -89,12 +89,12 @@ defmodule WebManagerWeb.Photo do
   def render_photo(photo) do
     """
     <div class="img-container">
-      <a href="#" phx-click="photo" phx-value="photo#{photo.id}" class="thumbnail">
+      <a href="#" phx-click="photo" phx-value="#{photo.id}" class="thumbnail">
         <img height=100 src="/images/#{photo.path}" />
       </a>
       <div class="btns">
-        <button href="#" phx-click="reject" phx-value="photo#{photo.id}" id="reject" class="btn btn-reject">👎</button>
-        <button href="#" phx-click="accept" phx-value="photo#{photo.id}" id="accept" class="btn btn-accept">👍</button>
+        <button href="#" phx-click="reject" phx-value="#{photo.id}" id="reject" class="btn btn-reject">👎</button>
+        <button href="#" phx-click="accept" phx-value="#{photo.id}" id="accept" class="btn btn-accept">👍</button>
       </div>
     </div>
     """
