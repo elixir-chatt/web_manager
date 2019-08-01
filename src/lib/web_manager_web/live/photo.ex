@@ -59,20 +59,20 @@ defmodule WebManagerWeb.Photo do
     {
       :ok,
       assign(
-        socket, 
-        person: %{name: "Lucas"}, 
-        photos: Photos.list_by_status(:pending), 
-        clicked_photo: "---", 
-        accepted_photo_id: "---", 
+        socket,
+        person: %{name: "Lucas"},
+        photos: Photos.list_by_status(:pending),
+        clicked_photo: "---",
+        accepted_photo_id: "---",
         rejected_photo_id: "---")
       }
   end
-  
+
   def add_random_photo(socket) do
-    Photos.create( 
+    Photos.create(
       %{
-        path: "#{:random.uniform(5)}.jpg", 
-        status: "pending", 
+        path: "#{:random.uniform(5)}.jpg",
+        status: "pending",
         troll: false
       }
     )
@@ -104,16 +104,16 @@ defmodule WebManagerWeb.Photo do
     Photos.accept(photo_id)
 
     assign(
-      socket, 
-      accepted_photo_id: photo_id, 
+      socket,
+      accepted_photo_id: photo_id,
       photos: Photos.list_by_status(:pending))
   end
 
   def reject(photo_id, socket) do
     Photos.reject(photo_id)
-    
+
     assign(
-      socket, 
+      socket,
       rejected_photo_id: photo_id,
       photos: Photos.list_by_status(:pending))
   end
@@ -129,7 +129,7 @@ defmodule WebManagerWeb.Photo do
   def handle_event("reject", clicked, socket) do
     {:noreply, reject(clicked, socket)}
   end
-  
+
   def handle_event("send-fake-photo", _value, socket) do
      {:noreply, add_random_photo(socket)}
   end

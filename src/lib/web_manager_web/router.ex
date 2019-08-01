@@ -20,6 +20,7 @@ defmodule WebManagerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/slideshow", SlideshowLive
     live "/photos", Photo
   end
 
