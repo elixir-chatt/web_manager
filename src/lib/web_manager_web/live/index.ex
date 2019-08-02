@@ -1,4 +1,4 @@
-defmodule WebManagerWeb.Index do
+defmodule WebManagerWeb.HomeLive do
   use Phoenix.LiveView
   alias WebManager.Photos
 
