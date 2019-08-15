@@ -13,12 +13,8 @@
 alias WebManager.Repo
 alias WebManager.Photos.Photo
 
-Repo.insert!(%Photo{path: "https://example1.com", status: "pending", troll: false})
-Repo.insert!(%Photo{path: "https://example2.com", status: "pending", troll: false})
-Repo.insert!(%Photo{path: "https://example3.com", status: "accepted", troll: false})
-Repo.insert!(%Photo{path: "https://example4.com", status: "accepted", troll: false})
-Repo.insert!(%Photo{path: "https://example5.com", status: "accepted", troll: true})
-Repo.insert!(%Photo{path: "https://example6.com", status: "accepted", troll: true})
-Repo.insert!(%Photo{path: "https://example7.com", status: "accepted", troll: true})
-Repo.insert!(%Photo{path: "https://example8.com", status: "rejected", troll: false})
-Repo.insert!(%Photo{path: "https://example9.com", status: "rejected", troll: true})
+Repo.insert!(%Photo{path: "1.jpg", status: "pending", troll: false})
+Repo.insert!(%Photo{path: "2.jpg", status: "pending", troll: false})
+Repo.insert!(%Photo{path: "3.jpg", status: "accepted", troll: false})
+Repo.insert!(%Photo{path: "4.jpg", status: "accepted", troll: false})
+Repo.insert!(%Photo{path: "5.jpg", status: "accepted", troll: true})
