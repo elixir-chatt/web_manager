@@ -18,6 +18,7 @@ defmodule WebManagerWeb.Router do
 
   scope "/", WebManagerWeb do
     pipe_through :browser
+    live "/index", HomeLive
 
     get "/", PageController, :index
     live "/slideshow", SlideshowLive
