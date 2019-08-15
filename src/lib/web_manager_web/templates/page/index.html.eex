@@ -5,18 +5,14 @@
       <a href="#" class="thumbnail">
         <img height=100 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
       </a>
-      <a href="#" class="thumbnail">
+      
         <img height=100 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
       </a>
     </div>
   </div>
 </section>
 <section>
-      <form method="POST" action="uploadFile" enctype="multipart/form-data">
-      <strong>Upload file:</strong> 
-      <input type="file" name="file" />
-          <input type="submit" value="Upload" />
-      </form>
+  <a href="/slideshow">Slideshow</a> | <a href="/photos">Manage</a>       
 
 </section>
 <section class="row">

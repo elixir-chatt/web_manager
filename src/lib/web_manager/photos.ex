@@ -8,7 +8,7 @@ defmodule WebManager.Photos do
   def accept(id) do
     id
     |> find
-    |> Photo.changeset(%{status: "acceped"})
+    |> Photo.changeset(%{status: "accepted"})
     |> Repo.update!
   end
 
