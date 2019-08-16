@@ -1,18 +1,22 @@
 <section class="phx-hero">
-  <h1><%= gettext "Submited Pictures from the %{name}!", name: "Photobooth" %></h1>
+  <h1>Welcome to PhotoBooth!</h1>
   <div class="row">
     <div class="col-xs-6 col-md-3">
-      <a href="#" class="thumbnail">
         <img height=100 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
-      </a>
-      
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
-      </a>
+        <img height=100 src="<%= Routes.static_path(@conn, "/images/2.jpg") %>" />
+        <img height=100 src="<%= Routes.static_path(@conn, "/images/3.jpg") %>" />
+        <img height=100 src="<%= Routes.static_path(@conn, "/images/4.jpg") %>" />
+        <img height=100 src="<%= Routes.static_path(@conn, "/images/5.jpg") %>" />
+        <img height=100 src="<%= Routes.static_path(@conn, "/images/6.jpg") %>" />
+    </div>
+    <div>
+      <hr/>
+      <a href="/slideshow">Slideshow</a> | <a href="/photos">Manage</a>       
     </div>
   </div>
 </section>
 <section>
-  <a href="/slideshow">Slideshow</a> | <a href="/photos">Manage</a>       
+  
 
 </section>
 <section class="row">

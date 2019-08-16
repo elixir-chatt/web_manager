@@ -5,7 +5,7 @@ defmodule WebManagerWeb.Photo do
   def render(assigns) do
     ~L"""
     <section class="phx-hero">
-      <h1>Submitted Pictures from our Photobooth by <%= @person.name %></h1>
+      <h1>Submitted Pictures from our Photobooth</h1>
       <div class="row">
 
           <%= render_photos(@photos) |> Phoenix.HTML.raw %>
@@ -71,7 +71,7 @@ defmodule WebManagerWeb.Photo do
   def add_random_photo(socket) do
     Photos.create(
       %{
-        path: "#{:random.uniform(5)}.jpg",
+        path: "#{:random.uniform(7)}.jpg",
         status: "pending",
         troll: false
       }

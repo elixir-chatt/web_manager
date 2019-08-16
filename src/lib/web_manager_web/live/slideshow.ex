@@ -5,12 +5,12 @@ defmodule WebManagerWeb.SlideshowLive do
   def render(assigns) do
     ~L"""
       <%= @photo_id %>
-      <img height=900 src="/images/<%= @photo.path %>" />
+      <img src="/images/<%= @photo.path %>" />
     """
   end
 
   def mount(_session, socket) do
-    if connected?(socket), do: :timer.send_interval(3000, self(), :tick)
+    if connected?(socket), do: :timer.send_interval(2000, self(), :tick)
 
     photo_id = Photos.next_photo(nil)
 
