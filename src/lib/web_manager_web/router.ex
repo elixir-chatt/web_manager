@@ -15,6 +15,19 @@ defmodule WebManagerWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
+  
+
+  scope "/api", WebManagerWeb do
+    pipe_through :api
+
+    post "/photos", UploadController, :create
+  end
+
+  scope "/upload", WebManagerWeb do
+    pipe_through :api
+
+    post "/photo/:id", UploadController, :upload
+  end
 
   scope "/", WebManagerWeb do
     pipe_through :browser
