@@ -13,25 +13,20 @@ config :web_manager,
 # Configures the endpoint
 config :web_manager, WebManagerWeb.Endpoint,
   live_view: [
-     signing_salt: "enterSaltHere"
+     signing_salt: System.get_env("live_view_salt")
   ],
   url: [host: "localhost"],
-  secret_key_base: "enterSecretKey",
+  secret_key_base: System.get_env("enter_secret_key"),
   render_errors: [view: WebManagerWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: WebManager.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [
-    signing_salt: "enterSaltHere"
-  ]
+  pubsub: [name: WebManager.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures S3 storage on digital ocean using Spaces
 config :ex_aws, :s3,
-  %{
-    access_key_id: "configure key",
-    secret_access_key: "configure key",
+    access_key_id: System.get_env("access_key_id"),
+    secret_access_key: System.get_env("secret_access_key") |> IO.inspect(label: "label"),
     scheme: "https://",
-    host: %{"nyc3" => "nyc3.digitaloceanspaces.com"},
+    host: System.get_env("s3_host"),
     region: "nyc3"
-  }
 
 # Configures Elixir's Logger
 config :logger, :console,

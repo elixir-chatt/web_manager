@@ -6,7 +6,7 @@ defmodule WebManager.Uploader do
 
   def upload_to_s3(upload_params, photo_id) do
     file = upload_params.path
-    bucket_name = System.get_env("BUCKET_NAME")
+    bucket_name = System.get_env("bucket_name")
     s3_path = "path/on/s3"
     file
       |> ExAws.S3.Upload.stream_file
