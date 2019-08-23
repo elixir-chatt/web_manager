@@ -13,9 +13,8 @@ defmodule WebManagerWeb.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "multipart"]
   end
-  
 
   scope "/api", WebManagerWeb do
     pipe_through :api
