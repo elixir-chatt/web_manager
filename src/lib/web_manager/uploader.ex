@@ -1,5 +1,6 @@
 defmodule WebManager.Uploader do
   @bucket System.get_env("bucket_name")
+  @jpg_options [content_type: "image/jpeg", content_disposition: "inline"]
   # def upload_to_s3(bytes, photo_id) do
   #   :seth_upload_photo_to_s3_and_return_path
   # end
@@ -7,7 +8,7 @@ defmodule WebManager.Uploader do
   def upload_to_s3(jpg, group, index) do
     path = photo_path(group, index)
     @bucket
-    |> ExAws.S3.put_object(path, jpg)
+    |> ExAws.S3.put_object(path, jpg, @jpg_options)
     |> ExAws.request!
 
     {:ok, s3_url(group, index)}
@@ -16,6 +17,15 @@ defmodule WebManager.Uploader do
   # this might need to point to some temp directory
   def s3_url(group, index) do
     "http://#{@bucket}.nyc3.digitalocean.com/#{photo_path(group, index)}"
+  end
+  
+  def signed_url(path) do
+    ExAws.S3.presigned_url(
+      ExAws.Config.new(:s3), 
+      :get, 
+      @bucket, 
+      path, 
+      [{:content_type, "image/jpeg"}, {:content_disposition, "inline"}])
   end
   
   def photo_path(group, index) do

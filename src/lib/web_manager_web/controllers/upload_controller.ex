@@ -13,7 +13,13 @@ defmodule WebManagerWeb.UploadController do
       conn.assigns.group, 
       conn.assigns.index,
       conn.assigns.troll)
-      
+    
+    # to test writing image  
+    # filename = Path.join(System.cwd, "priv/static/images/out.jpg")
+    # {:ok, file} = File.open(filename, [:write])
+    # IO.binwrite(file, conn.assigns.jpg)
+    # File.close(file)
+    
     conn
     |> text("ok")
     
