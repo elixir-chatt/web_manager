@@ -2,7 +2,7 @@ defmodule WebManager.Photos do
   import Ecto.Query, warn: false
   defstruct( photos: [] )
 
-  alias WebManager.Repo
+  alias WebManager.{Repo, Uploader}
   alias WebManager.Photos.Photo
 
   def accept(id) do
@@ -85,4 +85,27 @@ defmodule WebManager.Photos do
 
   def second([_first, second | _rest]), do: second
   def second(_), do: list_by_status(:accepted) |> List.first |> Map.get(:id)
+  
+  def upload_and_create(jpg, group, index, troll) do
+    {:ok, path} = Uploader.upload_to_s3(jpg, group, index)
+    
+    create(%{ path: path, status: "pending", troll: troll=="true"})
+  end
+  
+  def post_fake_to_self(index, troll) do
+    path = "./priv/static/images/#{:random.uniform(5)}.jpg"
+    {:ok, jpg} = File.read(path) 
+    
+    HTTPoison.post(
+      "http://localhost:4000/api/photos", 
+      jpg, 
+        [
+          {"Content-Type", "image/jpeg"}, 
+          {"Content-length", to_string byte_size(jpg)},
+          {"Index", to_string(index)},
+          {"Troll", troll}, 
+          {"GTS", "#{DateTime.to_unix DateTime.utc_now}"}
+   	    ]
+      )
+  end
 end

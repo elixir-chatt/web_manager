@@ -49,6 +49,7 @@ defmodule WebManager.MixProject do
       {:hackney, "~> 1.9"},
       {:sweet_xml, "~> 0.6"},
       {:poison, "~> 3.1"},
+      {:httpoison, "~> 1.4"},
     ]
   end
 

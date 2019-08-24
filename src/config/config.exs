@@ -23,7 +23,7 @@ config :web_manager, WebManagerWeb.Endpoint,
 # Configures S3 storage on digital ocean using Spaces
 config :ex_aws, :s3,
     access_key_id: System.get_env("access_key_id"),
-    secret_access_key: System.get_env("secret_access_key") |> IO.inspect(label: "label"),
+    secret_access_key: System.get_env("secret_access_key"),
     scheme: "https://",
     host: System.get_env("s3_host"),
     region: "nyc3"

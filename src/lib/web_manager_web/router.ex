@@ -15,9 +15,14 @@ defmodule WebManagerWeb.Router do
   pipeline :api do
     plug :accepts, ["json", "multipart"]
   end
+  
+  pipeline :photos do
+    plug :accepts, ["jpg"]
+    plug WebManager.Plugs.LoadJpg
+  end
 
   scope "/api", WebManagerWeb do
-    pipe_through :api
+    pipe_through :photos
 
     post "/photos", UploadController, :create
   end
