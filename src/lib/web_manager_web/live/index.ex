@@ -22,7 +22,7 @@ defmodule WebManagerWeb.HomeLive do
       :ok,
       assign(
         socket,
-        photos: Photos.list_by_status(:all))
+        photos: Photos.list_by_status(:accepted))
       }
   end
 
