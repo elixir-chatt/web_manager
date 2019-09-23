@@ -1,0 +1,69 @@
+
+ @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+ /* additional styles */
+ .container {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+ }
+ .phx-hero {
+     padding: 0;
+ }
+ .img-container{
+   display: flex;
+   flex-direction: column;
+   border: 2px solid #ccc;
+   margin: 1em;
+ }
+ .btn {
+   font-size: 25px;
+ }
+ 
+ .btn-reject {
+   background: red;
+ }
+ 
+ 
+ .btn-accept {
+   background: green;
+ }
+ 
+ .btns {
+   flex-direction: row;
+   justify-content: space-between;
+   display: flex;
+ }
+ .photos {
+   flex-direction: row;
+   align-items: flex-end;
+ }
+ .row {
+     padding: 0 1em;
+     flex-wrap: wrap;
+     justify-content: space-around;
+ }
+ button {
+     padding: 0 1.0rem;
+ }
+ /* Text coloring for accepted/rejected IDs */
+ .green-text {
+     color: #00FF00;
+ }
+ .red-text {
+     color: #FF0000;
+ }
+ /* Slideshow styles */
+ .slide-show-image-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+ }
+ .slide-show-image {
+     height: 97vh;
+     margin: 0 auto;
+ }
+ 
+ .troll {
+    
+ }
