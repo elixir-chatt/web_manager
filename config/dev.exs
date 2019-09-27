@@ -2,13 +2,13 @@ use Mix.Config
 
 # Configure your database
 config :web_manager, WebManager.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "web_manager_dev",
-  hostname: "localhost",
+  username: System.get_env("PG_USERNAME"),
+  password: System.get_env("PG_PASSWORD"),
+  database: System.get_env("PG_DATABASE"),
+  hostname: System.get_env("PG_HOSTNAME"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
-
+ 
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -78,9 +78,9 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :web_manager, WebManager.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "web_manager_dev",
-  hostname: "localhost",
-  pool_size: 10
+# config :web_manager, WebManager.Repo,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "web_manager_dev",
+#   hostname: "localhost",
+#   pool_size: 10
