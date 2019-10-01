@@ -66,8 +66,7 @@ import_config "prod.secret.exs"
 
 config :groxio, Groxio.Repo,
  adapter: Ecto.Adapters.Postgres,
- url: "${DATABASE_URL}",
+ url: System.get_env("PG_DATABASE_URL"),
  database: "",
  ssl: true,
  pool_size: 2 # Free tier db only allows 4 connections. Rolling deploys need pool_size*(n+1) connections.
- 

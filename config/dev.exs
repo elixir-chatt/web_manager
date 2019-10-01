@@ -2,13 +2,13 @@ use Mix.Config
 
 # Configure your database
 config :web_manager, WebManager.Repo,
-  username: System.get_env("PG_USERNAME"),
-  password: System.get_env("PG_PASSWORD"),
-  database: System.get_env("PG_DATABASE"),
-  hostname: System.get_env("PG_HOSTNAME"),
+  username: System.get_env("PG_USERNAME", "postgres"),
+  password: System.get_env("PG_PASSWORD", "postgres"),
+  database: System.get_env("PG_DATABASE", "web_manager_dev"),
+  hostname: System.get_env("PG_HOSTNAME", "localhost"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
- 
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
