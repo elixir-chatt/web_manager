@@ -3,6 +3,6 @@ defmodule WebManagerWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "multipart"
+    assert html_response(conn, 200) =~ "PhotoBooth"
   end
 end
