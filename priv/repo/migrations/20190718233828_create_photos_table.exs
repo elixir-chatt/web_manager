@@ -7,7 +7,7 @@ defmodule WebManager.Repo.Migrations.CreatePhotosTable do
       add :status, :string
       add :troll, :boolean
 
-      timestamps
+      timestamps()
     end
   end
 end
