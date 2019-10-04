@@ -89,7 +89,7 @@ defmodule WebManager.Photos do
   def upload_and_create(jpg, group, index, troll) do
     {:ok, path} = Uploader.upload_to_s3(jpg, group, index)
     
-    create(%{ path: path, status: "pending", troll: troll=="true"})
+    create(%{ path: path, status: "pending", troll: troll=="true"}) |> IO.inspect
   end
   
   def post_fake_to_self(index, troll) do
@@ -107,5 +107,10 @@ defmodule WebManager.Photos do
           {"GTS", "#{DateTime.to_unix DateTime.utc_now}"}
    	    ]
       )
+  end
+  
+  def s3_path(object) do
+    {:ok, url} = ExAws.S3.presigned_url(ExAws.Config.new(:s3), :get, "photobooth", object)
+    url
   end
 end

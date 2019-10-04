@@ -89,12 +89,12 @@ defmodule WebManagerWeb.Photo do
   def render_photo(photo) do
     """
     <div class="img-container">
-      <a href="#" phx-click="photo" phx-value="#{photo.id}" class="thumbnail">
-        <img height=100 src="/images/#{photo.path}" />
+      <a href="#" phx-click="photo" phx-value-id="#{photo.id}" class="thumbnail">
+        <img height=100 src="#{Photos.s3_path photo.path}" />
       </a>
       <div class="btns">
-        <button href="#" phx-click="reject" phx-value="#{photo.id}" id="reject" class="btn btn-reject">👎</button>
-        <button href="#" phx-click="accept" phx-value="#{photo.id}" id="accept" class="btn btn-accept">👍</button>
+        <button href="#" phx-click="reject" phx-value-id="#{photo.id}" id="reject" class="btn btn-reject">👎</button>
+        <button href="#" phx-click="accept" phx-value-id="#{photo.id}" id="accept" class="btn btn-accept">👍</button>
       </div>
     </div>
     """
@@ -118,15 +118,16 @@ defmodule WebManagerWeb.Photo do
       photos: Photos.list_by_status(:pending))
   end
 
-  def handle_event("photo", clicked, socket) do
+  def handle_event("photo", %{"id" => clicked}, socket) do
    {:noreply, assign(socket, clicked_photo: clicked )}
   end
 
-  def handle_event("accept", clicked, socket) do
+  def handle_event("accept", %{"id" => clicked}, socket) do
   {:noreply, accept(clicked, socket)}
   end
 
-  def handle_event("reject", clicked, socket) do
+  def handle_event("reject", %{"id" => clicked}, socket) do
+    IO.inspect clicked
     {:noreply, reject(clicked, socket)}
   end
 

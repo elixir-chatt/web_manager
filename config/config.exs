@@ -13,7 +13,7 @@ config :web_manager,
 # Configures the endpoint
 config :web_manager, WebManagerWeb.Endpoint,
   live_view: [
-     signing_salt: System.get_env("live_view_salt")
+     signing_salt: System.get_env("live_view_salt") || "vEkTRMkKljqGtKn8OCD2UQLA/OY9sBVN"
   ],
   url: [host: "localhost"],
   secret_key_base: System.get_env("enter_secret_key"),
