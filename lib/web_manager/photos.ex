@@ -92,12 +92,17 @@ defmodule WebManager.Photos do
     create(%{ path: path, status: "pending", troll: troll=="true"}) |> IO.inspect
   end
   
+  def post_fake_to_self() do
+    post_fake_to_self(:random.uniform(5), [true, false] |> Enum.shuffle |> hd)
+  end
+  
   def post_fake_to_self(index, troll) do
     path = "./priv/static/images/#{:random.uniform(5)}.jpg"
+    host = Application.get_env :web_manager, :full_host
     {:ok, jpg} = File.read(path) 
     
     HTTPoison.post(
-      "http://localhost:4000/api/photos", 
+      "#{host}/api/photos", 
       jpg, 
         [
           {"Content-Type", "image/jpeg"}, 

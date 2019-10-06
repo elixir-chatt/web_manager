@@ -14,6 +14,7 @@ defmodule WebManager.Uploader do
     path = photo_path(group, index)
     @bucket
     |> ExAws.S3.put_object(path, jpg, @jpg_options)
+    |> IO.inspect
     |> ExAws.request!
     |> IO.inspect
 

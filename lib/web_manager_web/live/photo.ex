@@ -5,21 +5,12 @@ defmodule WebManagerWeb.Photo do
   def render(assigns) do
     ~L"""
     <section class="phx-hero">
-      <h1>Submitted Pictures from our Photobooth</h1>
+      <h1>Manage Photos from our Photobooth</h1>
       <div class="row">
-
           <%= render_photos(@photos) |> Phoenix.HTML.raw %>
-
       </div>
     </section>
-    <h1>accepted: <%= @accepted_photo_id%>
-    rejected: <%= @rejected_photo_id%> </h1>
     <section>
-          <form method="POST" action="uploadFile" enctype="multipart/form-data">
-          <strong>Upload file:</strong>
-          <input type="file" name="file" />
-              <input type="submit" value="Upload" />
-          </form>
           <a href="#" class="btn" phx-click="send-fake-photo">Send fake photo</a>
     </section>
     <section class="row">
@@ -69,13 +60,7 @@ defmodule WebManagerWeb.Photo do
   end
 
   def add_random_photo(socket) do
-    Photos.create(
-      %{
-        path: "#{:random.uniform(7)}.jpg",
-        status: "pending",
-        troll: false
-      }
-    )
+      Photos.post_fake_to_self()
 
     socket
     |> assign(:photos, Photos.list_by_status(:pending))
