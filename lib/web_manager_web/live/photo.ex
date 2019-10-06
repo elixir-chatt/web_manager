@@ -13,36 +13,8 @@ defmodule WebManagerWeb.Photo do
     <section>
           <a href="#" class="btn" phx-click="send-fake-photo">Send fake photo</a>
     </section>
-    <section class="row">
-      <article class="column">
-        <h2>Resources</h2>
-        <ul>
-          <li>
-            <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-          </li>
-          <li>
-            <a href="https://github.com/phoenixframework/phoenix">Source</a>
-          </li>
-          <li>
-            <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-          </li>
-        </ul>
-      </article>
-      <article class="column">
-        <h2>Help</h2>
-        <ul>
-          <li>
-            <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-          </li>
-          <li>
-            <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-          </li>
-        </ul>
-      </article>
-    </section>
+    <h1><span class="green-text">PhotoID Accepted:</span> <%= @accepted_photo_id%>
+    <span class="red-text">PhotoID Rejected:</span> <%= @rejected_photo_id%> </h1>
     """
   end
 
