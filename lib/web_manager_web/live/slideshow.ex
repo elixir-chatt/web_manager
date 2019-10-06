@@ -4,8 +4,10 @@ defmodule WebManagerWeb.SlideshowLive do
 
   def render(assigns) do
     ~L"""
-      <%= @photo_id %>
-      <img src="<%= Photos.s3_path @photo.path %>" />
+      <div class="slide-show-image-container">
+        <img src="<%= Photos.s3_path @photo.path %>" class="slide-show-image" />
+        <div class="troll"></div>
+      </div>
     """
   end
 
