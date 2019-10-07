@@ -6,7 +6,7 @@ defmodule WebManagerWeb.SlideshowLive do
     ~L"""
       <div class="slide-show-image-container">
         <img src="<%= Photos.s3_path @photo.path %>" class="slide-show-image" />
-        <div class="troll"></div>
+        <div class="<%= troll_class(@photo.troll) %>"></div>
       </div>
     """
   end
@@ -36,7 +36,10 @@ defmodule WebManagerWeb.SlideshowLive do
     )
 
   end
-
+  
+  def troll_class(true), do: "troll"
+  def troll_class(false), do: ""
+  
   def handle_info(:tick, socket) do
     {:noreply, change_photo(socket)}
   end
