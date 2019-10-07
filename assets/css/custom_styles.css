@@ -1,0 +1,96 @@
+
+ @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+ 
+ /* additional styles */
+ .container {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+ }
+ .phx-hero {
+     padding: 0;
+ }
+ .img-container {
+   display: flex;
+   flex-direction: column;
+   border: none;
+   margin: 1em;
+ }
+
+.thumbnail {
+  border-radius: 5px;
+}
+
+ .btn {
+   font-size: 25px;
+   border: none;
+   transition-duration: 400ms;
+ }
+
+ .btn:hover{
+   transition-duration: 400ms;
+ }
+ 
+ .btn-reject {
+   background: rgb(233, 56, 56);
+ }
+ 
+ 
+ .btn-accept {
+  background: rgb(62, 209, 62);
+   /* background: green; */
+ }
+ 
+ .btns {
+   flex-direction: row;
+   justify-content: space-between;
+   display: flex;
+ }
+ .photos {
+   flex-direction: row;
+   align-items: flex-end;
+ }
+ .row {
+     padding: 0 1em;
+     flex-wrap: wrap;
+     justify-content: space-around;
+ }
+ button {
+     padding: 0 1.0rem;
+ }
+.btn:hover, button:hover {
+   background: #fff;
+ }
+ /* Text coloring for accepted/rejected IDs */
+ .green-text {
+     color: rgb(62, 209, 62);
+ }
+ .red-text {
+     color: rgb(233, 56, 56);
+ }
+ /* Slideshow styles */
+ .slide-show-image-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+ }
+ .slide-show-image {
+     height: 97vh;
+     margin: 0 auto;
+ }
+ 
+ .troll {
+  /* width: 100px; */
+  height: 100px;
+  background-image: linear-gradient(#01eb14, #ced131);
+  margin-top: -100px;
+  text-align: center;
+  padding: 0 auto;
+
+ }
+ .troll:after {
+    content: "Troll Mode: placeholder.com/troll";
+    color: white;
+    font-size: 32px;
+   
+ }
