@@ -4,14 +4,15 @@ defmodule WebManagerWeb.TrollController do
   require Logger
 
   def check(conn, _params) do
-    troll = Photos.last_troll()
-    Logger.warn("Troll value of #{troll}")
+    troll_mode = Photos.last_troll()
+    Logger.warn(inspect WebManager.Repo.all(Photos.troll))
+    Logger.warn("Troll value of #{troll_mode} #{🏴‍}")
     
     Photos.clear_troll()
     
     conn
     |> put_resp_header("cache-control", "no-store")
-    |> json(%{troll: troll})
+    |> json(%{troll: troll_mode})
   end
   
   def set(conn, _params) do
