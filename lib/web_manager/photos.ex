@@ -131,6 +131,7 @@ defmodule WebManager.Photos do
   end
   
   def clear_troll() do
+    create_troll(false)
     :ok
   end
   
