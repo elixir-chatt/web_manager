@@ -125,7 +125,9 @@ defmodule WebManager.Photos do
   end
   
   def last_troll() do
-    Troll |> last |> Repo.one |> troll
+    from(t in Troll, order_by: [desc: t.id], limit: 1)
+    |> Repo.one
+    |> troll
   end
   
   def clear_troll() do
