@@ -12,6 +12,5 @@ defmodule WebManager.Plugs.LoadJpg do
     |> assign(:jpg, jpg)
     |> assign(:index, Map.fetch!(headers, "index"))
     |> assign(:group, Map.fetch!(headers, "gts"))
-    |> IO.inspect(label: ">>>>>>>>>>>>>>>>>>>>>>>headers>>>>>>>>>>>>>>>>>>>>>>")
   end
 end
