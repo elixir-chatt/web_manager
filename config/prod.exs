@@ -75,11 +75,12 @@ config :logger, level: :info
 # and configuration from environment variables.
 import_config "prod.secret.exs"
 
-config :groxio, Groxio.Repo,
+config :web_manager, WebManager.Repo,
  adapter: Ecto.Adapters.Postgres,
  url: System.get_env("PG_DATABASE_URL"),
  database: "",
  ssl: true,
- pool_size: 2 # Free tier db only allows 4 connections. Rolling deploys need pool_size*(n+1) connections.
+ pool_size: 4 # Free tier db only allows 4 connections. Rolling deploys need pool_size*(n+1) connections.
 
 config :web_manager, :full_host, "https://photos.grox.io"
+
