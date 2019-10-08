@@ -128,10 +128,8 @@ defmodule WebManager.Photos do
     Troll |> last |> Repo.one |> troll
   end
   
-  def check_and_clear_troll() do
-    result = last_troll()
-    create_troll false
-    result
+  def clear_troll() do
+    :ok
   end
   
   def troll(nil), do: false
