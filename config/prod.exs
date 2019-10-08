@@ -13,6 +13,17 @@ config :web_manager, WebManagerWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :web_manager, WebManagerWeb.Endpoint,
+  http: [port: {:system, "PORT"}],
+  server: true,
+  secret_key_base: "${SECRET_KEY_BASE}",
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  url: [scheme: "https", host: "photos.grox.io", port: 443],
+  check_origin: ["https://photos.grox.io", "https://grox.io"],
+  cache_static_manifest: "priv/static/cache_manifest.json"
+
+
+
 # Do not print debug messages in production
 config :logger, level: :info
 
