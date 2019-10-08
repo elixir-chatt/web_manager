@@ -7,7 +7,7 @@ defmodule WebManagerWeb.TrollController do
     
     conn
     |> put_resp_header("cache-control", "max-age=0")
-    |> json(%{troll: troll})
+    |> json(%{troll: true})
   end
   
   def set(conn, _params) do
