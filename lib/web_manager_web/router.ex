@@ -18,6 +18,10 @@ defmodule WebManagerWeb.Router do
     plug :accepts, ["jpg"]
     plug WebManager.Plugs.LoadJpg
   end
+  
+  pipeline :admin do
+    plug WebManager.Plugs.BasicAuth, Application.get_env(:web_manager, :basic)
+  end
 
   scope "/api", WebManagerWeb do
     pipe_through :photos
@@ -44,6 +48,10 @@ defmodule WebManagerWeb.Router do
     get "/", PageController, :index
     get "/troll", TrollController, :set
     live "/slideshow", SlideshowLive
+  end
+  
+  scope "/", WebManagerWeb do
+    pipe_through [:browser, :admin]
     live "/photos", Photo
   end
 

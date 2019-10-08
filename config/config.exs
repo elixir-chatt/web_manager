@@ -21,6 +21,10 @@ config :web_manager, WebManagerWeb.Endpoint,
   pubsub: [name: WebManager.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures S3 storage on digital ocean using Spaces
+config :web_manager, :basic,
+    user_name: System.get_env("BASIC_LOGIN"),
+    password: System.get_env("BASIC_PASSWORD")
+
 config :ex_aws, :s3,
     access_key_id: System.get_env("access_key_id"),
     secret_access_key: System.get_env("secret_access_key"),
