@@ -21,8 +21,14 @@ defmodule WebManagerWeb.Router do
 
   scope "/api", WebManagerWeb do
     pipe_through :photos
-
+    
     post "/photos", UploadController, :create
+  end
+  
+  scope "/api", WebManagerWeb do
+    pipe_through :api
+    
+    get "/troll", TrollController, :check
   end
 
   scope "/upload", WebManagerWeb do
@@ -36,6 +42,7 @@ defmodule WebManagerWeb.Router do
     live "/index", HomeLive
 
     get "/", PageController, :index
+    get "/troll", TrollController, :set
     live "/slideshow", SlideshowLive
     live "/photos", Photo
   end

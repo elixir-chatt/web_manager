@@ -3,7 +3,7 @@ defmodule WebManager.Photos do
   defstruct( photos: [] )
 
   alias WebManager.{Repo, Uploader}
-  alias WebManager.Photos.Photo
+  alias WebManager.Photos.{Photo, Troll}
 
   def accept(id) do
     id
@@ -118,4 +118,22 @@ defmodule WebManager.Photos do
     {:ok, url} = ExAws.S3.presigned_url(ExAws.Config.new(:s3), :get, "photobooth", object)
     url
   end
+  
+  def create_troll(troll) do
+    Troll.changeset(troll)
+    |> Repo.insert
+  end
+  
+  def last_troll() do
+    Troll |> last |> Repo.one |> troll
+  end
+  
+  def check_and_clear_troll() do
+    result = last_troll()
+    create_troll false
+    result
+  end
+  
+  def troll(nil), do: false
+  def troll(troll), do: troll.troll
 end
