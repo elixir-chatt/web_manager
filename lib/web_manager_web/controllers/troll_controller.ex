@@ -5,7 +5,9 @@ defmodule WebManagerWeb.TrollController do
   def check(conn, _params) do
     troll = Photos.check_and_clear_troll()
     
-    json(conn, %{troll: troll})
+    conn
+    |> put_resp_header("cache-control", "max-age=0")
+    |> json(%{troll: troll})
   end
   
   def set(conn, _params) do
