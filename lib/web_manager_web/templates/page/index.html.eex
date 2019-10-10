@@ -1,14 +1,18 @@
 <section class="phx-hero">
-  <h1>Welcome to PhotoBooth!</h1>
+  <img width=50% src="<%= Routes.static_path(@conn,"/images/takefive.png") %>" />
+  <h1>PhotoBooth!</h1>
   <div class="row home-page-container">
-    <img height=100 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
-    <img height=100 src="<%= Routes.static_path(@conn, "/images/2.jpg") %>" />
-    <img height=100 src="<%= Routes.static_path(@conn, "/images/3.jpg") %>" />
-    <img height=100 src="<%= Routes.static_path(@conn, "/images/4.jpg") %>" />
-    <img height=100 src="<%= Routes.static_path(@conn, "/images/5.jpg") %>" />
-    <img height=100 src="<%= Routes.static_path(@conn, "/images/6.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/2.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/3.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/4.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/5.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/6.jpg") %>" />
   </div>
   <div class="bottom">
     <a href="/slideshow">Slideshow</a> | <a href="/photos">Manage</a>       
   </div>
+  <h5 style="margin-bottom: 0;">Thanks to our sponsors!</h5>
+  <img width=100 src="<%= Routes.static_path(@conn,"/images/c5.png") %>" />
+  <img width=80 src="<%= Routes.static_path(@conn,"/images/gce.png") %>" />
 </section>
