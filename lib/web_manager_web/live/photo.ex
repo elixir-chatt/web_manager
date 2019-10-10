@@ -11,10 +11,11 @@ defmodule WebManagerWeb.Photo do
       </div>
     </section>
     <section>
-          <a href="#" class="btn" phx-click="send-fake-photo">Send fake photo</a>
+    <hr/>
     </section>
-    <h1><span class="green-text">PhotoID Accepted:</span> <%= @accepted_photo_id%>
-    <span class="red-text">PhotoID Rejected:</span> <%= @rejected_photo_id%> </h1>
+    <section>
+    <div class="container"><h1><a href="/slideshow">Slideshow</a> | <a href="../">Home</a></h1></div>
+    </section
     """
   end
 
