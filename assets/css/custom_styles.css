@@ -7,15 +7,33 @@
      flex-direction: row;
      justify-content: center;
  }
- .phx-hero {
-     padding: 0;
- }
+ 
  .img-container {
    display: flex;
    flex-direction: column;
    border: none;
    margin: 1em;
  }
+
+ .bottom {
+   padding-bottom: 45px
+ }
+
+ .phx-hero {
+   margin-top: 4rem;
+   height: 100%;
+ }
+
+ .row {
+     padding: 0 1em;
+     display: flex;
+     justify-content: space-around;
+ }
+
+ .home-page-container {
+   margin: 10rem auto;
+ }
+
 
 .thumbnail {
   border-radius: 5px;
@@ -50,11 +68,7 @@
    flex-direction: row;
    align-items: flex-end;
  }
- .row {
-     padding: 0 1em;
-     flex-wrap: wrap;
-     justify-content: space-around;
- }
+
  button {
      padding: 0 1.0rem;
  }

@@ -1,51 +1,18 @@
 <section class="phx-hero">
-  <h1>Welcome to PhotoBooth!</h1>
-  <div class="row">
-    <div class="col-xs-6 col-md-3">
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/2.jpg") %>" />
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/3.jpg") %>" />
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/4.jpg") %>" />
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/5.jpg") %>" />
-        <img height=100 src="<%= Routes.static_path(@conn, "/images/6.jpg") %>" />
-    </div>
-    <div>
-      <hr/>
-      <a href="/slideshow">Slideshow</a> | <a href="/photos">Manage</a>       
-    </div>
+  <img width=50% src="<%= Routes.static_path(@conn,"/images/takefive.png") %>" />
+  <h1>PhotoBooth!</h1>
+  <div class="row home-page-container">
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/1.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/2.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/3.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/4.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/5.jpg") %>" />
+    <img height=140 src="<%= Routes.static_path(@conn, "/images/6.jpg") %>" />
   </div>
-</section>
-<section>
-  
-
-</section>
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-    </ul>
-  </article>
+  <div class="bottom">
+    <a href="/slideshow">Slideshow</a> | <a href="/photos">Manage</a>       
+  </div>
+  <h5 style="margin-bottom: 0;">Thanks to our sponsors!</h5>
+  <img width=100 src="<%= Routes.static_path(@conn,"/images/c5.png") %>" />
+  <img width=80 src="<%= Routes.static_path(@conn,"/images/gce.png") %>" />
 </section>
