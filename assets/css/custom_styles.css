@@ -82,15 +82,17 @@
  .troll {
   /* width: 100px; */
   height: 100px;
-  background-image: linear-gradient(#01eb14, #ced131);
+  background: #fff;
   margin-top: -100px;
   text-align: center;
   padding: 0 auto;
+  opacity: .20;
 
  }
  .troll:after {
     content: "Troll Mode: placeholder.com/troll";
     color: white;
     font-size: 32px;
+    background-image: 'images/troll.png';
    
  }

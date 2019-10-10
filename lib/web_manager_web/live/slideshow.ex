@@ -6,7 +6,9 @@ defmodule WebManagerWeb.SlideshowLive do
     ~L"""
       <div class="slide-show-image-container">
         <img src="<%= Photos.s3_path @photo.path %>" class="slide-show-image" />
-        <div class="<%= troll_class(@photo.troll) %>"></div>
+        <%= if @photo.troll do %>
+        <img width="50px"class="troll" src="/images/troll.png" />
+        <% end %>
       </div>
     """
   end
